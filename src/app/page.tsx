@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   return (
-    <AuroraBackground className="min-h-screen">
-      <div className="z-10 text-center max-w-4xl px-6 w-full mt-24 flex flex-col items-center">
+    <AuroraBackground className="min-h-screen flex items-center justify-center">
+      <div className="z-10 text-center max-w-4xl px-6 w-full mx-auto flex flex-col items-center">
         <div className="flex justify-center mb-6">
           <div className="w-20 h-20 rounded-lg bg-card/40 backdrop-blur-md border border-primary/20 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.3)]">
             <Shield className="w-10 h-10 text-primary" />
