@@ -1,69 +1,64 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Shield, Lock, FileCheck, Layers } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { TextReveal } from "@/components/ui/text-reveal";
+import { GlowingButton } from "@/components/ui/glowing-button";
+import { Button } from "@/components/ui/button";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <AuroraBackground className="min-h-screen">
+      <div className="z-10 text-center max-w-4xl px-6 w-full mt-24 flex flex-col items-center">
+        <div className="flex justify-center mb-6">
+          <div className="w-20 h-20 rounded-lg bg-card/40 backdrop-blur-md border border-primary/20 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+            <Shield className="w-10 h-10 text-primary" />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
+          LEX<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">VAULT</span>
+        </h1>
+        
+        <h2 className="text-2xl md:text-3xl text-muted-foreground font-medium mb-4 tracking-tight">
+          PRIVATE PROOF OF EVIDENCE
+        </h2>
+        
+        <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto h-16">
+          <TextReveal text='"Verify authenticity without revealing confidential evidence."' />
+        </p>
+        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <Link href="/dashboard">
+            <GlowingButton size="lg" className="w-full sm:w-auto text-lg px-8 py-6 h-auto">
+              ENTER DEMO
+            </GlowingButton>
+          </Link>
+          <Link href="/architecture">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 h-auto border-primary/30 hover:bg-primary/10 transition-colors backdrop-blur-md bg-background/30">
+              VIEW SYSTEM ARCHITECTURE
+            </Button>
+          </Link>
         </div>
-      </main>
-    </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-primary/20 max-w-3xl mx-auto">
+          {[
+            { icon: Lock, label: "SECURE" },
+            { icon: Shield, label: "ZERO-KNOWLEDGE" },
+            { icon: FileCheck, label: "TAMPER-EVIDENT" },
+            { icon: Layers, label: "AUDITABLE" },
+          ].map((feature, i) => (
+            <div 
+              key={i} 
+              className="group flex flex-col items-center text-center space-y-3 p-4 rounded-lg hover:bg-primary/5 transition-all duration-100 border border-transparent hover:border-primary/20 cursor-default"
+            >
+              <feature.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-100 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+              <span className="text-sm font-medium tracking-wider text-muted-foreground group-hover:text-foreground transition-colors duration-100">
+                {feature.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </AuroraBackground>
   );
 }
